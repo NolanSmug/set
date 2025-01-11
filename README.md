@@ -1,7 +1,7 @@
 # Game of Set – React App
 `Nolan Cyr 2025`
 
-<img src='./src/images/cover-image-1.png'>
+<img src='./src/images/cover-image-1.png' width='500px'>
 
 
 ## Rules of Set
@@ -20,21 +20,21 @@ is either all the same or all different on the three cards.
 ### Valid `SET` Examples
 
 <hr>
-<img src='./src/images/sample-set-1.png'>
+<img src='./src/images/sample-set-1.png' width='350px'>
 
 - **Shape:** All `DIAMOND` ✅
 - **Color:** All `RED` ✅
 - **Number:** All _different_ (`1`,`2`,`3`) ✅
 - **Shading:** All `OPEN` ✅
 <hr>
-<img src='./src/images/sample-set-2.png'>
+<img src='./src/images/sample-set-2.png' width='350px'>
 
 - **Shape:** All _different_ (`DIAMOND`, `SQUIGGLE`, `OVAL`) ✅
 - **Color:** All `PURPLE` ✅
 - **Number:** All _different_ (`1`,`2`,`3`) ✅
 - **Shading:** All `SHADED` ✅
 <hr>
-<img src='./src/images/sample-set-3.png'>
+<img src='./src/images/sample-set-3.png' width='350px'>
 
 - EVERYTHING _different_
   - **Shape:** `DIAMOND`, `SQUIGGLE`, `OVAL` ✅
@@ -43,19 +43,13 @@ is either all the same or all different on the three cards.
   - **Shading:** `SOLID`, `SHADED`, `OPEN` ✅
 
 ### Invalid `SET` Example
-<img src='./src/images/sample-invalid-set-1.png'>
+<img src='./src/images/sample-invalid-set-1.png' width='350px'>
 
 
 - **Shape:** **INVALID**. Two are `SQUIGGLE`, the other is `DIAMOND` ❌
 - **Color:** All `GREEN` ✅
 - **Number:** All _different_ (`1`,`2`,`3`) ✅
 - **Shading:** `OPEN`, `SHADED`, `SOLID` ✅
-
-
-
-
-
-
 
 ### Gameplay
 - 12 cards (of a total 81) are displayed
