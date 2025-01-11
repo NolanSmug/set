@@ -1,0 +1,46 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 75px;
+    padding: 10px;
+    border: 2px solid var(--card-border-color);
+    border-radius: 10px;
+    background-color: var(--card-bg-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.card:hover:not(.selected) {
+    transform: scale(1.05);
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.selected {
+    transform: scale(0.95);
+    margin: 7px;
+    border: 4px solid rgb(33, 156, 74);
+    transition: transform 0.2s ease, box-shadow 2s ease;
+    align-self: center;
+}
+
+.card:active:not(.invalid){
+    transform: scale(0.95);
+}
+
+.invalid {
+    border: 4px solid rgb(215, 62, 62);
+    box-shadow: none;
+}
+
+.shape {
+    display: block;
+    align-self: center;
+}

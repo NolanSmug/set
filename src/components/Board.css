@@ -1,0 +1,31 @@
+.board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.board-12, .board-15 {
+    display: grid;
+    grid-auto-rows: auto;
+}
+
+.board-12 {
+    grid-template-columns: auto auto auto;
+}
+
+.board-15 {
+    grid-template-columns: auto auto auto auto;
+}
+
+.buttons-container {
+    display: flex;
+    column-gap: 1em;
+    margin-top: 1em;
+    width: 100%;
+    max-width: 35%;
+    justify-content: space-between;
+}
+
+

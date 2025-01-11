@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useMemo } from 'react'
+
+import Game from './logic/Game'
+import Board from './components/Board'
+import './App.css'
+import { useUIContext } from './contexts/UIContext'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { darkMode } = useUIContext()
+
+    useEffect(() => {
+        document.body.classList.toggle('dark-mode', darkMode)
+    }, [darkMode])
+
+    const game = useMemo(() => {
+        const newGame = new Game()
+        newGame.drawBoard()
+        return newGame
+    }, [])
+
+    return <Board game={game} />
 }
 
-export default App;
+export default App
