@@ -2,6 +2,7 @@
 `Nolan Cyr 2025`
 
 <img src='./src/images/cover-image-1.png' width='500px'>
+<img src='./src/images/cover-image-2.png' width='500px>
 
 
 ## Rules of Set
