@@ -9,9 +9,10 @@ export interface CardProps {
     onClick?: () => void
     isSelected?: boolean
     isInvalid?: boolean
+    isInSetGroup?: boolean
 }
 
-const Card: React.FC<CardProps> = ({ color, shape, number, shading, onClick, isSelected, isInvalid }) => {
+const Card: React.FC<CardProps> = ({ color, shape, number, shading, onClick, isSelected, isInvalid, isInSetGroup }) => {
     function colorToHex(color: string): string {
         switch (color) {
             case 'red':
@@ -86,7 +87,10 @@ const Card: React.FC<CardProps> = ({ color, shape, number, shading, onClick, isS
     }
 
     return (
-        <div className={`card ${isSelected ? 'selected' : ''} ${isInvalid ? 'invalid' : ''}`} onClick={onClick}>
+        <div
+            className={`card ${isSelected ? 'selected' : ''} ${isInvalid ? 'invalid' : ''} ${isInSetGroup ? 'in-set-group' : ''}`}
+            onClick={onClick}
+        >
             {Array.from({ length: number + 1 }, (_, index) => (
                 <div className="shape" key={index}>
                     {getShape(shape, color)}

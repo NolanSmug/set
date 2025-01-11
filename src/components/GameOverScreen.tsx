@@ -32,6 +32,7 @@ const GameOverScreen = ({ refreshBoard, darkMode, foundSets }: GameOverScreenPro
                                 shape={card.shapeToString()}
                                 number={card.getNumber()}
                                 shading={card.shadingToString()}
+                                isInSetGroup
                             />
                         ))}
                     </div>

@@ -92,6 +92,8 @@ function Board({ game }: BoardProps) {
         )
     }
 
+    game.findSets()
+
     return (
         <div className="board-container">
             {isGameOver ? (
