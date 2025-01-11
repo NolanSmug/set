@@ -13,7 +13,7 @@ export default class Game {
         this.deck = []
         this.foundSets = []
 
-        for (let i = 2; i < 3; i++) {
+        for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 for (let k = 0; k < 3; k++) {
                     for (let l = 0; l < 3; l++) {
@@ -114,13 +114,13 @@ export default class Game {
             for (let j = i + 1; j < this.board.length; j++) {
                 for (let k = j + 1; k < this.board.length; k++) {
                     if (this.isSet([this.board[i], this.board[j], this.board[k]])) {
-                        console.log('Indexes of set:', this.board.indexOf(this.board[i]) + 1, this.board.indexOf(this.board[j]) + 1, this.board.indexOf(this.board[k]) + 1)
+                        // console.log('Indexes of set:', this.board.indexOf(this.board[i]) + 1, this.board.indexOf(this.board[j]) + 1, this.board.indexOf(this.board[k]) + 1)
                         return true
                     }
                 }
             }
         }
-        console.log('No sets found.')
+        // console.log('No sets found.')
         return false
     }
 
