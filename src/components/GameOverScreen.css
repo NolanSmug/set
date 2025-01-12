@@ -25,6 +25,10 @@
     transition: transform 0.2s ease;
 }
 
+#last-found-set {
+    margin-left: 4em;
+}
+
 hr {
     width: 100%;  
     border: none;  

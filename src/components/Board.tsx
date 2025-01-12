@@ -24,6 +24,7 @@ function Board({ game }: BoardProps) {
 
     const [selectedCardIndexes, setSelectedCardIndexes] = useState<number[]>([])
     const [numSetsFound, setNumSetsFound] = useState<number>(0)
+    const [numSetsDeducted, setNumSetsDeducted] = useState<number>(0)
     const [alreadyDeductedScore, setAlreadyDeductedScore] = useState<boolean>(false)
     const [isGameOver, setIsGameOver] = useState<boolean>(false)
     const [isInvalidSet, setIsInvalidSet] = useState<boolean>(false)
@@ -32,6 +33,7 @@ function Board({ game }: BoardProps) {
 
     const refreshBoard = () => {
         setNumSetsFound(0)
+        setNumSetsDeducted(0)
         setSelectedCardIndexes([])
         setExtraCards(false)
         setAlreadyDeductedScore(false)
@@ -50,8 +52,10 @@ function Board({ game }: BoardProps) {
             }
             setAlreadyDeductedScore(false)
         } else {
-            if (!alreadyDeductedScore) setNumSetsFound((prev) => prev - 1)
-            setAlreadyDeductedScore(true)
+            if (!alreadyDeductedScore) {
+                setAlreadyDeductedScore(true)
+                setNumSetsDeducted((prev) => prev + 1)
+            }
         }
     }
 
@@ -74,7 +78,7 @@ function Board({ game }: BoardProps) {
                     setNumSetsFound((prev) => prev + 1)
                     game.addSetToFoundSets(selectedCards)
                 } else {
-                    setNumSetsFound((prev) => prev - 1)
+                    setNumSetsDeducted((prev) => prev + 1)
                 }
                 setSelectedCardIndexes([])
                 setAlreadyDeductedScore(false)
@@ -97,10 +101,16 @@ function Board({ game }: BoardProps) {
     return (
         <div className="board-container">
             {isGameOver ? (
-                <GameOverScreen refreshBoard={refreshBoard} darkMode={darkMode} foundSets={game.getFoundSets()} />
+                <GameOverScreen
+                    deductedScore={numSetsDeducted}
+                    refreshBoard={refreshBoard}
+                    darkMode={darkMode}
+                    foundSets={game.getFoundSets()}
+                />
             ) : (
                 <>
                     <h2>Sets Found: {numSetsFound}</h2>
+                    <h2 style={{ marginBottom: '1em' }}>Sets Deducted: {numSetsDeducted}</h2>
 
                     <div className={extraCards ? 'board-15' : 'board-12'}>
                         {board.map((card, index) => (

@@ -11,19 +11,22 @@ interface GameOverScreenProps {
     refreshBoard: () => void
     darkMode: boolean
     foundSets: CardData[][]
+    deductedScore: number
 }
 
-const GameOverScreen = ({ refreshBoard, darkMode, foundSets }: GameOverScreenProps) => (
+const GameOverScreen = ({ refreshBoard, darkMode, foundSets, deductedScore }: GameOverScreenProps) => (
     <div className="game-over">
         {foundSets.length === 27 ? <h1>PERFECT GAME</h1> : <h1>Game Complete!</h1>}
 
         <ActionButton imageSrc={darkMode ? RESET_BUTTON_W : RESET_BUTTON_B} label="Play Again" onClick={refreshBoard} />
         <div className="found-sets-container">
-            <h2 style={{ marginBottom: 0 }}>Sets Found: {foundSets.length}</h2>
+            <h3>Sets Found: {foundSets.length}</h3>
+            <h3>Sets Deducted: {deductedScore}</h3>
+            <h1 style={{ marginTop: '1em' }}>Final Score: {foundSets.length - deductedScore}</h1>
             <hr></hr>
             {foundSets.length > 0 &&
                 foundSets.map((set, index) => (
-                    <div key={index} className="found-set">
+                    <div key={index} className="found-set" id={index + 1 === foundSets.length ? 'last-found-set' : ''}>
                         {index + 1}
                         {set.map((card, index) => (
                             <Card
@@ -35,6 +38,13 @@ const GameOverScreen = ({ refreshBoard, darkMode, foundSets }: GameOverScreenPro
                                 isInSetGroup
                             />
                         ))}
+                        {index + 1 == foundSets.length && (
+                            <ActionButton
+                                imageSrc={darkMode ? RESET_BUTTON_W : RESET_BUTTON_B}
+                                label="Play Again"
+                                onClick={refreshBoard}
+                            />
+                        )}
                     </div>
                 ))}
         </div>
