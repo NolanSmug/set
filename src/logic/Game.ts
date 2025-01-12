@@ -120,7 +120,7 @@ export default class Game {
                 }
             }
         }
-        // console.log('No sets found.')
+        console.log('No sets found.')
         return false
     }
 
