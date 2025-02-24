@@ -5,7 +5,7 @@
 |:------------------------------------------------:|:------------------------------------------------:|
 
 
-## Rules of Set
+## Rules of `SET`
 
 ### Objective
 The goal is to identify a `SET` of 3 cards from the cards displayed on the table. A `SET` consists of 3 cards where each feature:
@@ -18,7 +18,7 @@ is either all the same or all different on the three cards.
 
 > **A good test:** If two are and one is not, it is **NOT** a set
 
-### Valid `SET` Examples
+### Valid `SET` examples
 
 <hr>
 <img src='./src/images/sample-set-1.png' width='350px'>
@@ -43,7 +43,7 @@ is either all the same or all different on the three cards.
   - **Number:** `1`,`2`,`3` ✅
   - **Shading:** `SOLID`, `SHADED`, `OPEN` ✅
 
-### Invalid `SET` Example
+### Invalid `SET` example
 <img src='./src/images/sample-invalid-set-1.png' width='350px'>
 
 
