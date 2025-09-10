@@ -13,6 +13,8 @@ import D_MODE from '../images/dark-mode-icon.svg'
 import L_MODE from '../images/light-mode-icon.svg'
 import NO_SETS_W from '../images/no-sets-w.svg'
 import NO_SETS_B from '../images/no-sets-b.svg'
+import RE_DEAL_W from '../images/re-deal-w.svg'
+import RE_DEAL_B from '../images/re-deal-b.svg'
 import { CardData } from '../logic/CardData'
 
 export interface BoardProps {
@@ -127,22 +129,21 @@ function Board({ game }: BoardProps) {
                         ))}
                     </div>
                     <div className="buttons-container">
-                        <ActionButton
-                            imageSrc={darkMode ? RESET_BUTTON_W : RESET_BUTTON_B}
-                            label="Reset"
-                            onClick={refreshBoard}
-                        />
-                        <ActionButton
-                            imageSrc={darkMode ? L_MODE : D_MODE}
-                            label="Theme"
-                            onClick={() => setDarkMode((prev) => !prev)}
-                        />
-                        <ActionButton
-                            imageSrc={darkMode ? NO_SETS_W : NO_SETS_B}
-                            label="No Sets"
-                            onClick={checkNoSets}
-                            disabled={alreadyDeductedScore}
-                        />
+                        <ActionButton imageSrc={darkMode ? RESET_BUTTON_W : RESET_BUTTON_B} label="Reset" onClick={refreshBoard} />
+                        <ActionButton imageSrc={darkMode ? L_MODE : D_MODE} label="Theme" onClick={() => setDarkMode((prev) => !prev)} />
+                        <div className="right-container">
+                            <ActionButton
+                                imageSrc={darkMode ? NO_SETS_W : NO_SETS_B}
+                                label="No Sets"
+                                onClick={checkNoSets}
+                                disabled={alreadyDeductedScore}
+                            />
+                            <ActionButton
+                                imageSrc={darkMode ? RE_DEAL_W : RE_DEAL_B}
+                                label="End Game"
+                                onClick={() => setIsGameOver(true)}
+                            />
+                        </div>
                     </div>
                 </>
             )}

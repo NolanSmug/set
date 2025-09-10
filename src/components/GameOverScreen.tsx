@@ -26,7 +26,11 @@ const GameOverScreen = ({ refreshBoard, darkMode, foundSets, deductedScore }: Ga
             <hr></hr>
             {foundSets.length > 0 &&
                 foundSets.map((set, index) => (
-                    <div key={index} className="found-set" id={index + 1 === foundSets.length ? 'last-found-set' : ''}>
+                    <div
+                        key={index}
+                        className="found-set"
+                        id={index + 1 === foundSets.length && foundSets.length > 5 ? 'last-found-set' : ''}
+                    >
                         {index + 1}
                         {set.map((card, index) => (
                             <Card
