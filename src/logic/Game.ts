@@ -1,4 +1,4 @@
-import { CardData as Card} from './CardData'
+import { CardData as Card } from './CardData'
 
 export default class Game {
     private board: Card[] = []
@@ -76,8 +76,9 @@ export default class Game {
         this.board = []
     }
 
-    public replaceSetOnBoard(set: Card[]): void {        
-        set.forEach((card) => { // For each card in set
+    public replaceSetOnBoard(set: Card[]): void {
+        set.forEach((card) => {
+            // For each card in set
             const cardIndex: number = this.board.indexOf(card)
 
             if (this.deck.length > 0) {
@@ -114,32 +115,37 @@ export default class Game {
             for (let j = i + 1; j < this.board.length; j++) {
                 for (let k = j + 1; k < this.board.length; k++) {
                     if (this.isSet([this.board[i], this.board[j], this.board[k]])) {
-                        console.log('Indexes of set:', this.board.indexOf(this.board[i]) + 1, this.board.indexOf(this.board[j]) + 1, this.board.indexOf(this.board[k]) + 1)
+                        console.log(
+                            'Indexes of set:',
+                            this.board.indexOf(this.board[i]) + 1,
+                            this.board.indexOf(this.board[j]) + 1,
+                            this.board.indexOf(this.board[k]) + 1
+                        )
                         return true
                     }
                 }
             }
         }
-        console.log('No sets found.')
+        // console.log('No sets found.')
         return false
     }
 
     private sortSet(set: Card[]): Card[] {
         return [...set].sort((a, b) => {
-            const numberDifference = a.getNumber() - b.getNumber();
-            if (numberDifference !== 0) return numberDifference;
-    
-            const colorDifference = a.getColor() - b.getColor();
-            if (colorDifference !== 0) return colorDifference;
-    
-            const shapeDifference = a.getShape() - b.getShape();
-            if (shapeDifference !== 0) return shapeDifference;
-    
-            return a.getShading() - b.getShading();
-        });
+            const numberDifference = a.getNumber() - b.getNumber()
+            if (numberDifference !== 0) return numberDifference
+
+            const colorDifference = a.getColor() - b.getColor()
+            if (colorDifference !== 0) return colorDifference
+
+            const shapeDifference = a.getShape() - b.getShape()
+            if (shapeDifference !== 0) return shapeDifference
+
+            return a.getShading() - b.getShading()
+        })
     }
 
     public addSetToFoundSets(set: Card[]): void {
-        this.foundSets.push(this.sortSet(set));
+        this.foundSets.push(this.sortSet(set))
     }
 }
